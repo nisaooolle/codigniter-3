@@ -118,10 +118,10 @@
 <body>
   <div class="main">
     <p class="sign" align="center">Sign in</p>
-    <form class="form1">
-      <input class="un " type="text" align="center" placeholder="Username">
-      <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">Sign in</a>
+    <form class="form1" action="<?php echo base_url();?>Auth/aksi_login" method="post" >
+      <input class="un " type="email" align="center" placeholder="Email" name="email">
+      <input class="pass" type="password" align="center" placeholder="Password" name="password">
+      <button class="submit"  align="center" type="submit" name="submit">Sign in</button>
       <p class="forgot" align="center"><a href="#">Forgot Password?</p>
             
                 
