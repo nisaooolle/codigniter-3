@@ -14,27 +14,29 @@
     <div class="min-vh-100 d-flex align-items-center">
         <div class="card w-50 m-auto p-3 ">
             <h3 class="text-center">Ubah Siswa</h3>
-            <form action="" method="post" class="row">
+            <?php foreach($siswa as $ ): ?>
+            <form action="<?php echo base_url('admin/aksi_update')?>" enctype="multipart/form-data" method="post" class="row">
+                <input type="hidden" name="id_siswa" value="<?php echo $data_siswa->id_siswa?>">
                 <div class="mb-3 col-6">
                     <label for="nama" class="form-label">Nama Siswa</label>
-                    <input type="text" class="form-control" id="nama_siswa" name="nama">
+                    <input type="text" class="form-control" id="nama_siswa" name="nama" value="<?php echo $data_siswa->nama_siswa?>">
                 </div>
                 <div class="mb-3 col-6">
                     <label for="nama" class="form-label">Nisn</label>
-                    <input type="text" class="form-control" id="nisn" name="nisn">
+                    <input type="text" class="form-control" id="nisn" name="nisn" value="<?php echo $data_siswa->nisn?>">
                 </div>
                 <div class="mb-3 col-6">
                     <label for="nama" class="form-label">Gender</label>
                     <select name="gender" class="form-select">
-                        <option selected>Pilih Gender</option>
+                        <option selected value="<?php echo $data_siswa->gender?>"><?php echo $data_siswa->gender?></option>
                         <option value="laki-laki">Laki Laki</option>
                         <option value="perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="mb-3 col-6">
                     <label for="kelas" class="form-label">Tingkat Kelas</label>
-                    <select name="kelas" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Pilih Kelas</option>
+                    <select name="kelas" id="kelas" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected value="<?php echo $data_siswa->id_kelas?>"><?php echo tampil_full_kelas_byid($data_siswa->id_kelas)?></option>
                         <?php
                         foreach ($kelas as $row) :
                         ?>
@@ -45,8 +47,8 @@
                 </div>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             </form>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
-
 </html>

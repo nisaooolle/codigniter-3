@@ -384,18 +384,18 @@ a {
   <nav class="s-sidebar__nav">
      <ul>
         <li>
-           <a class="s-sidebar__nav-link" href="#0">
-              <i class="fa fa-home"></i><em>Home</em>
+           <a class="s-sidebar__nav-link" href="/codeigniter-3/admin/siswa">
+              <i class="fa fa-home"></i><em>Dasboard</em>
+           </a>
+        </li>
+        <li>
+           <a class="s-sidebar__nav-link" href="/codeigniter-3/admin/siswa">
+             <i class="fa fa-user"></i><em>Siswa</em>
            </a>
         </li>
         <li>
            <a class="s-sidebar__nav-link" href="#0">
-             <i class="fa fa-user"></i><em>My Profile</em>
-           </a>
-        </li>
-        <li>
-           <a class="s-sidebar__nav-link" href="#0">
-              <i class="fa fa-camera"></i><em>Camera</em>
+              <i class="fa fa-camera"></i><em>Kelas</em>
            </a>
         </li>
      </ul>

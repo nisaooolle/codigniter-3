@@ -137,7 +137,7 @@
                                     <?php echo $row->tingkat_kelas . ' ' . $row->jurusan_kelas; ?>
                                 </td>
                                 <td data-cell="Aksi" class="text-center aksi">
-                                    <button type="button" id="PopoverCustomT-1" class="btn btn-success btn-sm edit">Edit</button>
+                                    <a href="<?php echo base_url('admin/update/').$row->id_siswa?>" type="button" id="PopoverCustomT-1" class="btn btn-success btn-sm edit">Edit</a>
                                     <button onclick="hapus(<?php echo $row->id_siswa ?>)" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm hapus">Hapus</button>
                                 </td>
 
