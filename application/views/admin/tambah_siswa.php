@@ -43,6 +43,10 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class="mb-3 col-6">
+                    <label for="nama" class="form-label">Foto</label>
+                    <input type="file" class="form-control" id="foto" name="foto">
+                </div>
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             </form>
         </div>

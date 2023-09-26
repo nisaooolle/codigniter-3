@@ -14,7 +14,7 @@
     <div class="min-vh-100 d-flex align-items-center">
         <div class="card w-50 m-auto p-3 ">
             <h3 class="text-center">Ubah Siswa</h3>
-            <?php foreach($siswa as $ ): ?>
+            <?php foreach($siswa as $data_siswa ): ?>
             <form action="<?php echo base_url('admin/aksi_update')?>" enctype="multipart/form-data" method="post" class="row">
                 <input type="hidden" name="id_siswa" value="<?php echo $data_siswa->id_siswa?>">
                 <div class="mb-3 col-6">
