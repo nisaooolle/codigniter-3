@@ -32,6 +32,10 @@
                     <label for="kelas" class="form-label">Konfirmasi Password</label>
                     <input type="text" class="form-control" id="konfirmasi_password" name="konfirmasi_password" placeholder="Konfirmasi Password">
                 </div>
+                <div class="mb-3 col-6">
+                    <label for="nama" class="form-label">Foto</label>
+                    <input type="file" class="form-control" id="foto" name="foto">
+                </div>
                 <button type="submit" class="btn btn-primary" name="submit">Ubah</button>
             </form>
             <?php endforeach; ?>

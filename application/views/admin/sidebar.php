@@ -534,9 +534,9 @@
                </a>
             </li>
             <li>
-               <a href="guru">
+               <a href="akun">
                   <span class="fa-solid fa-chalkboard-user"></span>
-                  <span>Guru</span>
+                  <span>Akun</span>
                </a>
             </li>
             <li>

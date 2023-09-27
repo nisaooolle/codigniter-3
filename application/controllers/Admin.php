@@ -23,6 +23,15 @@ class Admin extends CI_Controller
   {
     $this->load->view('admin/dasboard');
   }
+  public function dasboard_keuangan()
+  {
+    $this->load->view('admin/dasboard_keuangan');
+  }
+  public function table_akun()
+  {
+    $data['user'] = $this->m_model->get_data('admin')->result();
+    $this->load->view('admin/table_akun',$data);
+  }
 
   public function upload_img($value)
   {
@@ -32,16 +41,15 @@ class Admin extends CI_Controller
     $config['max_size'] = '30000';
     $config['file_name'] = $kode;
     $this->upload->initialize($config);
-    if(!$this->upload->do_upload($value))
-    {
-      return array( false, '');
-    }else{
+    if (!$this->upload->do_upload($value)) {
+      return array(false, '');
+    } else {
       $fn = $this->upload->data();
       $nama = $fn['file_name'];
-      return array( true, $nama);
+      return array(true, $nama);
     }
   }
- 
+
   public function siswa()
   {
     $data['result'] = $this->m_model->getData();
@@ -56,7 +64,7 @@ class Admin extends CI_Controller
   public function aksi_tambah_siswa()
   {
     $foto = $this->upload_img('foto');
-    if ($foto[0]==false) {
+    if ($foto[0] == false) {
       $data = [
         'foto' => 'User.png',
         'nama_siswa' => $this->input->post('nama'),
@@ -77,7 +85,6 @@ class Admin extends CI_Controller
       $this->m_model->tambah_data('siswa', $data);
       redirect(base_url('admin/siswa'));
     }
-    
   }
 
   public function update($id)
@@ -104,7 +111,7 @@ class Admin extends CI_Controller
       redirect(base_url('admin/siswa/update/' . $this->input->post('id_siswa')));
     }
   }
-   public function hapus_siswa($id)
+  public function hapus_siswa($id)
   {
     $this->m_model->delete('siswa', 'id_siswa', $id);
     redirect(base_url('admin/siswa'));
@@ -117,33 +124,64 @@ class Admin extends CI_Controller
 
   public function aksi_akun()
   {
-      $email = $this->input-$post('email');
-      $username = $this->input->post('username');
-      $password_baru = $this->input->post('password_baru');
-      $konfirmasi_password = $this->input->post('konfirmasi_password');
+    $foto = $this->upload_images('foto');
+    $email = $this->input->post('email');
+    $username = $this->input->post('username');
+    $password_baru = $this->input->post('password_baru');
+    $konfirmasi_password = $this->input->post('konfirmasi_password');
 
-      $data = array(
-        'email' =>$email,
-        'username' =>$username,
-    );
-    
+    $foto = $this->upload_images('foto');
+    if ($foto[0] == false) {
+      $data = [
+        'foto' => 'Userrr.png',
+        'email' => $email,
+        'username' => $username,
+
+      ];
+    } else {
+      $data = [
+        'foto' => $foto[1],
+        'email' => $email,
+        'username' => $username,
+      ];
+    }
+
     // jika ada pasword baru
     if (!empty($password_baru)) {
       // pastikan pasword sama
-      if($password_baru === $konfirmasi_password){
+      if ($password_baru === $konfirmasi_password) {
         $data['password'] = md5($password_baru);
-      }else {
+      } else {
         $this->session->set_flashdata('message', 'password baru dan konfirmasi password harus sama...');
         redirect(base_url('admin/akun'));
       }
-    } 
+    }
     // lakukan pembaruan data
     $this->session->set_userdata($data);
-    $update_result = $this->m_model->ubah_data('admin' , $data, array('id' => $this->session->userdata('id')));
-    if($update_result) {
+    $update_result = $this->m_model->ubah_data('admin', $data, array('id' => $this->session->userdata('id')));
+    if ($update_result) {
       redirect(base_url('admin/akun'));
-    }else{
+    } else {
       redirect(base_url('admin/akun'));
+    }
+
+    
+  }
+
+  public function upload_images($value)
+  {
+    $kode = round(microtime(true)  * 1000);
+    $config['upload_path'] = './images/admin/';
+    $config['allowed_types'] = 'jpg|png|jpeg';
+    $config['max_size'] = '30000';
+    $config['file_name'] = $kode;
+    $this->upload->initialize($config);
+    if (!$this->upload->do_upload($value)) {
+      return array(false, '');
+    } else {
+      $fn = $this->upload->data();
+      $nama = $fn['file_name'];
+      return array(true, $nama);
     }
   }
 }

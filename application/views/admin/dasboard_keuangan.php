@@ -507,7 +507,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="admin/siswa">
+                    <a href="siswa">
                         <span class="fas fa-users"></span>
                         <span>Siswa</span>
                     </a>
@@ -515,7 +515,7 @@
                 <li>
                     <a href="admin/akun">
                         <span class="fa-solid fa-chalkboard-user"></span>
-                        <span>Akun</span>
+                        <span>akun</span>
                     </a>
                 </li>
                 <li>
@@ -535,7 +535,7 @@
                 <label for="nav-toggle">
                     <span class="fas fa-bars"></span>
                 </label>
-                Dashboard
+                Dashboard Keuangan
             </h2>
         </header>
 
