@@ -6,90 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
 
     <style>
-        .hapus {
-            padding: 2px 10px 2px 10px;
-            color: white;
-            font-size: 15px;
-        }
-
-        .edit {
-            padding: 2px 10px 2px 10px;
-            margin-right: 10px;
-            color: white;
-            font-size: 15px;
-        }
-
-
-        .create {
-            margin-left: 85%;
-            color: white;
-            width: 65px;
-            font-size: 15px;
-            /* margin-bottom: 70px; */
-            margin-top: -5px;
-        }
-
-        @media (max-width: 600px) {
-
-            .edit {
-                margin-left: 4.5em;
-                color: white;
-                font-size: 16px;
-                width: 3.5em;
-
-            }
-
-            .hapus {
-                width: 4.5em;
-                padding: 2px 10px 2px 10px;
-                font-size: 16px;
-
-                position: relative;
-            }
-
-            tbody {
-                text-align: left;
-            }
-
-            .option-select {
-                font-size: 12px;
-            }
-
-            .td {
-                padding-right: none;
-                display: flex;
-                justify-content: left;
-            }
-
-            .responsive-3 {
-                width: 100%;
-            }
-
-            th {
-                display: none;
-            }
-
-            td {
-                display: grid;
-                gap: 0.5rem;
-                grid-template-columns: 15ch auto;
-                padding: 0.75em 1rem;
-            }
-
-            td:first-child {
-                padding-top: 2rem;
-            }
-
-            td::before {
-                content: attr(data-cell) "  : ";
-                font-weight: bold;
-            }
-        }
-
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 
         :root {
@@ -348,7 +268,6 @@
 
         table {
             border-collapse: collapse;
-            margin-right: 30px;
         }
 
         thead tr {
@@ -602,6 +521,7 @@
 </head>
 
 <body>
+    <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
             <h1> <span class="fab fa-asymmetrik"> </span> <span style="font-family: 'Times New Roman', Times, serif;">School</span>
@@ -611,21 +531,21 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="dasboard">
+                    <a href="/codeigniter-3/keuangan">
                         <span class="fas fa-tachometer-alt"></span>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="siswa" class="active">
+                    <a href="keuangan/pembayaran" class="active">
                         <span class="fas fa-users"></span>
-                        <span>Siswa</span>
+                        <span>Pembayaran</span>
                     </a>
                 </li>
                 <li>
-                    <a href="akun">
+                    <a href="admin/akun">
                         <span class="fa-solid fa-chalkboard-user"></span>
-                        <span>Akun</span>
+                        <span>akun</span>
                     </a>
                 </li>
                 <li>
@@ -635,71 +555,61 @@
                     </a>
                 </li>
             </ul>
-
         </div>
     </div>
     <header>
-        <h2 style="color: rgba(9, 81, 121, 1); font-family: 'Times New Roman', Times, serif;">
-            <label for="nav-toggle">
-                <span class="fas fa-bars"></span>
-            </label>
-            Dashboard Keuangan
-        </h2>
-    </header>
+            <h2 style="color: rgba(9, 81, 121, 1); font-family: 'Times New Roman', Times, serif;">
+                <label for="nav-toggle">
+                    <span class="fas fa-bars"></span>
+                </label>
+                Dashboard Keuangan
+            </h2>
+        </header>
     <div class="app-main">
         <div class="app-main__outer">
-            <h2 class="tasis">Tabel Siswa</h2>
+            <h2 class="tasis">Tabel Pembayaran</h2>
             <table class="table table-striped">
                 <thead>
                     <tr style="color:black; background: white">
                         <th scope="col" class="text-center">No</th>
-                        <th scope="col" class="text-center">Foto Siswa</th>
                         <th scope="col" class="text-center">Nama Siswa</th>
-                        <th scope="col" class="text-center">Nisn</th>
-                        <th scope="col" class="text-center">Gender</th>
-                        <th scope="col" class="text-center">Kelas</th>
+                        <th scope="col" class="text-center">Jenis Pembayaran</th>
+                        <th scope="col" class="text-center">Total Pembayaran</th>
                         <th scope="col" class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 0;
-                    foreach ($result as $row) : $no++ ?>
+                    foreach ($pembayaran as $row) : $no++ ?>
                         <tr>
                             <th data-cell="No" class="text-center" scope="row">
                                 <?php echo $no ?>
                             </th>
-                            <th data-cell="Gender" class="text-center">
-                                <img src="<?php echo base_url('images/siswa/' . $row->foto) ?>" width="50" alt="">
-                            </th>
-                            <th data-cell="Nama Siswa" class="text-center">
+                            <th data-cell="nama" class="text-center">
                                 <?php echo $row->nama_siswa; ?>
                             </th>
-                            <th data-cell="Nisn" class="text-center">
-                                <?php echo $row->nisn; ?>
+                            <th data-cell="jenis_pembayaran" class="text-center">
+                                <?php echo $row->jenis_pembayaran; ?>
                             </th>
-                            <th data-cell="Gender" class="text-center">
-                                <?php echo $row->gender; ?>
-                            </th>
-                            <th data-cell="Kelas" class="text-center">
-                                <?php echo $row->tingkat_kelas . ' ' . $row->jurusan_kelas; ?>
+                            <th data-cell="total_pembayaran" class="text-center">Rp.
+                                <?php echo $row->total_pembayaran; ?>
                             </th>
                             <th data-cell="Aksi" class="text-center aksi">
-                                <a href="<?php echo base_url('admin/update/') . $row->id_siswa ?>" type="button" id="PopoverCustomT-1" class="btn btn-success btn-sm edit">Edit</a>
-                                <button onclick="hapus(<?php echo $row->id_siswa ?>)" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm hapus">Hapus</button>
+                                <a href="<?php echo base_url('keuangan/update_pembayaran/') . $row->id ?>" type="button" id="PopoverCustomT-1" class="btn btn-success btn-sm edit">Edit</a>
+                                <button onclick="hapus(<?php echo $row->id ?>)" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm hapus">Hapus</button>
                             </th>
-
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="<?php echo base_url('admin/tambah_siswa/') ?>" type="button" id="PopoverCustomT-1" class="btn btn-info btn-sm create">create</a>
+            <a href="<?php echo base_url('keuangan/tambah_pembayaran/') ?>" type="button" id="PopoverCustomT-1" class="btn btn-info btn-sm create">create</a>
         </div>
     </div>
     <script>
         function hapus(id) {
             var yes = confirm('Yakin di hapus?');
             if (yes == true) {
-                window.location.href = "<?php echo base_url('admin/hapus_siswa/') ?>" + id
+                window.location.href = "<?php echo base_url('keuangan/hapus_pembayaran/') ?>" + id
             }
         }
     </script>

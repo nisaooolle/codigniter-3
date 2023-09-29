@@ -522,7 +522,7 @@
       <div class="sidebar-menu">
          <ul>
             <li>
-               <a href="dasboard" class="active">
+               <a href="dasboard" >
                   <span class="fas fa-tachometer-alt"></span>
                   <span>Dashboard</span>
                </a>
@@ -534,7 +534,7 @@
                </a>
             </li>
             <li>
-               <a href="akun">
+               <a href="akun" class="active">
                   <span class="fa-solid fa-chalkboard-user"></span>
                   <span>Akun</span>
                </a>

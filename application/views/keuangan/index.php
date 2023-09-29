@@ -501,15 +501,15 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="dasboard" class="active">
+                    <a href="/codeigniter-3/keuangan" class="active">
                         <span class="fas fa-tachometer-alt"></span>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="siswa">
+                    <a href="keuangan/pembayaran">
                         <span class="fas fa-users"></span>
-                        <span>Siswa</span>
+                        <span>Pembayaran</span>
                     </a>
                 </li>
                 <li>
@@ -543,26 +543,26 @@
             <div class="cards">
                 <div class="card-single">
                     <div>
-                        <h1 style="color: rgba(9, 81, 121, 1);"></h1>
-                        <span>Siswa</span>
+                        <h1 style="color: rgba(9, 81, 121, 1);">$250.000</h1>
+                        <span>Jumlah Pembayaran SPP</span>
                     </div>
                     <div>
-                        <span class="fas fa-users"></span>
-                    </div>
-                </div>
-                <div class="card-single">
-                    <div>
-                        <h1 style="color: rgba(9, 81, 121, 1);"></h1>
-                        <span>Guru</span>
-                    </div>
-                    <div>
-                        <span class="fa-solid fa-chalkboard-user"></span>
+                        <span class="fa-solid fa-money-check-dollar"></span>
                     </div>
                 </div>
                 <div class="card-single">
                     <div>
-                        <h1></h1>
-                        <span>Admin</span>
+                        <h1 style="color: rgba(9, 81, 121, 1);">$1.000.000</h1>
+                        <span>Jumlah Pembayaran Gedung </span>
+                    </div>
+                    <div>
+                        <span class="fa-solid fa-building-user"></span>
+                    </div>
+                </div>
+                <div class="card-single">
+                    <div>
+                        <h1>$500.000</h1>
+                        <span>Jumlah Pembayaran Seragam</span>
                     </div>
                     <div>
                         <span class="fa-solid fa-user"></span>

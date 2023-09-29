@@ -582,7 +582,7 @@
             margin: 3rem 2rem 6rem;
             width: 65%;
             margin-left: 30%;
-            margin-top: 2%;
+            margin-top: 10%;
             background-color: rgba(9, 81, 121, 1);
             padding: 20px;
             border-radius: 20px;
@@ -611,7 +611,7 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="dasboard">
                         <span class="fas fa-tachometer-alt"></span>
                         <span>Dashboard</span>
                     </a>
@@ -638,6 +638,14 @@
 
         </div>
     </div>
+    <header>
+            <h2 style="color: rgba(9, 81, 121, 1); font-family: 'Times New Roman', Times, serif;">
+                <label for="nav-toggle">
+                    <span class="fas fa-bars"></span>
+                </label>
+                Dashboard Keuangan
+            </h2>
+        </header>
     <div class="app-main">
         <div class="app-main__outer">
             <h2 class="tasis">Tabel Akun</h2>

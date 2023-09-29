@@ -13,6 +13,15 @@ class M_model extends CI_Model{
         $query = $this->db->get();
         return $query->result();
     }
+    public function getDataPembayaran()
+    {
+        // Query database untuk mengambil data
+        $this->db->select('pembayaran.*,siswa.nama_siswa');
+        $this->db->from('pembayaran');
+        $this->db->join('siswa', 'pembayaran.id_siswa = siswa.id_siswa', 'left');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     function getwhere($table, $data)
     {
@@ -38,5 +47,18 @@ class M_model extends CI_Model{
         $data=$this->db->update($tabel,$data,$where);
         return $this->db->affected_rows();
     }
+    public function get_siswa_foto_by_id($id_siswa)
+{
+    $this->db->select('foto');
+    $this->db->from('siswa');
+    $this->db->where('id_siswa', $id_siswa);
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+        $result = $query->row();
+        return $result->foto;
+    } else {
+        return false;
+    }
 }
-?>
+}
