@@ -170,7 +170,7 @@ class Admin extends CI_Controller
   public function hapus_siswa($id)
   {
     // model det siswa by id
-    $siswa = $this->m_model->get_by_id('siszwa', 'id_siswa', $id)->row();
+    $siswa = $this->m_model->get_by_id('siswa', 'id_siswa', $id)->row();
     // if siswa ada
     if ($siswa) {
       // if foto siswa bukan 'user.png'
@@ -179,7 +179,7 @@ class Admin extends CI_Controller
 
         if (file_exists($file_path)) {
           if (unlink($file_path)) {
-            // hapus file berhasil menggunakan model delete
+            // hapus file berhasil menggunakan model delete      
             $this->m_model->delete('siswa', 'id_siswa', $id);
             redirect(base_url('admin/siswa'));
           } else{

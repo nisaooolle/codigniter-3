@@ -591,8 +591,8 @@
                             <th data-cell="jenis_pembayaran" class="text-center">
                                 <?php echo $row->jenis_pembayaran; ?>
                             </th>
-                            <th data-cell="total_pembayaran" class="text-center">Rp.
-                                <?php echo $row->total_pembayaran; ?>
+                            <th data-cell="total_pembayaran" class="text-center">
+                                <?php echo convRupiah($row->total_pembayaran) ?>
                             </th>
                             <th data-cell="Aksi" class="text-center aksi">
                                 <a href="<?php echo base_url('keuangan/update_pembayaran/') . $row->id ?>" type="button" id="PopoverCustomT-1" class="btn btn-success btn-sm edit">Edit</a>
