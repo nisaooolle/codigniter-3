@@ -594,7 +594,7 @@
                             <th data-cell="total_pembayaran" class="text-center">
                                 <?php echo convRupiah($row->total_pembayaran) ?>
                             </th>
-                            <th data-cell="Aksi" class="text-center aksi">
+                                   <th data-cell="Aksi" class="text-center aksi">
                                 <a href="<?php echo base_url('keuangan/update_pembayaran/') . $row->id ?>" type="button" id="PopoverCustomT-1" class="btn btn-success btn-sm edit">Edit</a>
                                 <button onclick="hapus(<?php echo $row->id ?>)" type="button" id="PopoverCustomT-1" class="btn btn-danger btn-sm hapus">Hapus</button>
                             </th>
@@ -603,6 +603,8 @@
                 </tbody>
             </table>
             <a href="<?php echo base_url('keuangan/tambah_pembayaran/') ?>" type="button" id="PopoverCustomT-1" class="btn btn-info btn-sm create">create</a>
+            <br>
+            <a href="<?php echo base_url('keuangan/export') ?>" type="button" id="PopoverCustomT-1" class="btn btn-info btn-sm create">Export</a>
         </div>
     </div>
     <script>
