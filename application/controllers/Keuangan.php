@@ -67,6 +67,8 @@ class Keuangan extends CI_Controller
     $this->m_model->delete('pembayaran', 'id', $id);
     redirect(base_url('keuangan/pembayaran'));
   }
+
+  // export
   public function export()
   {
     $spreadsheet = new Spreadsheet();

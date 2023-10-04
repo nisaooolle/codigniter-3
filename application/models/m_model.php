@@ -73,6 +73,21 @@ public function get_by_nisn($nisn)
     if ($query->num_rows() > 0) {
         $result = $query->row();
         return $result->id_siswa;
+    } else {  
+        return false;
+    }
+}
+
+public function get_by_kelas($tingkat_kelas)
+{
+    $this->db->select('id');
+    $this->db->from('kelas');
+    $this->db->where('tingkat_kelas', $tingkat_kelas);
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+        $result = $query->row();
+        return $result->id;
     } else {
         return false;
     }

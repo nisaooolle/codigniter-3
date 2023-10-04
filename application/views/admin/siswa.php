@@ -611,7 +611,7 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="dasboard">
+                    <a href="/codeigniter-3/admin">
                         <span class="fas fa-tachometer-alt"></span>
                         <span>Dashboard</span>
                     </a>
@@ -692,17 +692,46 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="<?php echo base_url('admin/tambah_siswa/') ?>" type="button" id="PopoverCustomT-1" class="btn btn-info btn-sm create">create</a>
+            <div style="display: flex; gap: 10px;">
+            <a href="<?php echo base_url('admin/tambah_siswa/') ?>" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm ">create</a>
+            <br>
+            <a href="<?php echo base_url('admin/export') ?>" type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm ">Export</a>
+            <br>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Import</button>
+     </div>
         </div>
     </div>
     <script>
         function hapus(id) {
             var yes = confirm('Yakin di hapus?');
             if (yes == true) {
-                window.location.href = "<?php echo base_url('admin/hapus_siswa/') ?>" + id
+                window.location.href = "<?php echo base_url('admin/hapus_siswa/')?>" + id
             }
         }
     </script>
+
+    <!-- Modal -->
+<form action="<?= base_url('admin/import') ?>" method="post" enctype="multipart/form-data">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Siswa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <input type="file" name="file" class="form-control">
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" name="import" value="import" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
