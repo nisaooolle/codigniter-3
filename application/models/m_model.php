@@ -93,4 +93,14 @@ public function get_by_kelas($tingkat_kelas)
     }
 }
 
+public function getDataGuru()
+    {
+        // Query database untuk mengambil data
+        $this->db->select('guru.*,mapel.nama_mapel,kelas.tingkat_kelas, kelas.jurusan_kelas');
+        $this->db->from('guru');
+        $this->db->join('mapel', 'guru.id = mapel.id', 'left');
+        $this->db->join('kelas', 'guru.id = kelas.id_guru_walikelas', 'left');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
