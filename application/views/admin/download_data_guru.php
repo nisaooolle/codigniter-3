@@ -44,8 +44,12 @@ header("Content-Disposition: attachment; filename=".$nama.".xls");
             <td><?php echo $key->nama_guru ?></td>
             <td><?php echo $key->nik ?></td>
             <td><?php echo $key->gender ?></td>
-            <td><?php echo $key->nama_mapel?></td>
-            <td><?php echo $key->tingkat_kelas.' '.$key->jurusan_kelas?></td>
+            <td><?php echo tampil_full_mapel_byid($key->id_mapel) ?></td>
+            <td><?php if (empty(tampil_full_kelas_byid($key->id))):?>
+            Tidak Menjadi Wali Kelas
+            <?php else:?>
+                <?php echo tampil_full_kelas_byid($key->id)?>
+            <?php endif?></td>
         </tr>
         <?php } ?>
     </table>
